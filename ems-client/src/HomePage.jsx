@@ -14,7 +14,7 @@ const HomePage = () => {
 
   const fetchTotalEmployees = async () => {
     try {
-      const response = await api.get("/api/employees/total-employees");
+      const response = await api.get("/employees/total-employees");
       setTotalEmployees(response.data);
     } catch (error) {
       console.error("Error fetching total employees:", error);
