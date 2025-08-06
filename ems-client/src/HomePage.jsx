@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaUsers } from "react-icons/fa";
 import "./HomePage.css";
-import api from "./api/axios";
+// import api from "./api/axios";
+import axios from "axios";
 
 const HomePage = () => {
   const [totalEmployees, setTotalEmployees] = useState(0);
@@ -12,7 +13,9 @@ const HomePage = () => {
 
   const fetchTotalEmployees = async () => {
     try {
-      const response = await api.get("/employees/total-employees");
+      const response = await axios.get(
+        "https://employee-management-system-version1.onrender.com/employees/total-employees"
+      );
       setTotalEmployees(response.data);
     } catch (error) {
       console.error("Error fetching total employees:", error);
