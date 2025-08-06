@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaUsers } from "react-icons/fa"; // 👈 Import human icon from react-icons
+import { FaUsers } from "react-icons/fa";
+import "./HomePage.css";
 
 const HomePage = () => {
   const [totalEmployees, setTotalEmployees] = useState(0);
@@ -21,20 +22,33 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h2 className="text-2xl font-bold mb-6">
-        Welcome to the home page DenDev
+    <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 bg-dark py-5">
+      <h2 className="fs-5 fw-light animate-heartbeat text-center text-white mb-3">
+        Built for Leaders. Made for Teams
       </h2>
 
-      <div className="bg-dark shadow-lg rounded-2xl p-6 w-64 flex flex-col items-center mt-5 h-25">
-        <FaUsers
-          className="text-blue-700 mb-2 ms-4"
-          style={{ fontSize: "60px" }}
-        />
-        {/* <h3 className="text-xl font-semibold ms-4">Total Employees</h3> */}
-        <p className="text-3xl font-bold text-gray-800 ms-5 pb-6">
-          {totalEmployees}
-        </p>
+      <div className="container-fluid bg-dark min-vh-100 pt-4 d-flex flex-column align-items-center">
+        <div className="row justify-content-center w-100">
+          <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mt-2">
+            <div
+              className="card text-center shadow-lg mt-3 mx-auto"
+              style={{
+                backgroundColor: "#343a40",
+                color: "white",
+                borderRadius: "1rem",
+              }}
+            >
+              <div className="card-body d-flex flex-column align-items-center p-4">
+                <FaUsers
+                  className="mb-3 text-primary"
+                  style={{ fontSize: "3.5rem" }}
+                />
+                <h6 className="text-light mb-2">Total Employees</h6>
+                <p className="fs-2 fw-bold text-light mb-0">{totalEmployees}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

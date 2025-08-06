@@ -156,6 +156,7 @@
 
 import axios from "axios";
 import React, { useState } from "react";
+import { FaFileMedical } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const AddEmployee = () => {
@@ -191,7 +192,10 @@ const AddEmployee = () => {
             className="p-4 border rounded bg-light shadow"
             onSubmit={saveEmployee}
           >
-            <h2 className="text-dark text-center mb-4">Add Employee</h2>
+            <h2 className="text-dark text-center mb-4">
+              {" "}
+              <FaFileMedical /> Add Employee
+            </h2>
 
             {/* Input Fields */}
             {[
