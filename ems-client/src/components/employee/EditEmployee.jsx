@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaPencilRuler } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import api from "../../api/axios";
+// import api from "../../api/axios";
+import axios from "axios";
 
 const EditEmployee = () => {
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ const EditEmployee = () => {
 
   useEffect(() => {
     const loadEmployee = async () => {
-      const result = await api.get(`/employees/employee/${employeeId}`);
+      const result = await axios.get(
+        `https://employee-management-system-version1.onrender.com/api/employees/employee/${employeeId}`
+      );
       setEmployee(result.data);
     };
 
@@ -35,7 +38,10 @@ const EditEmployee = () => {
 
   const updateEmployee = async (e) => {
     e.preventDefault();
-    await api.put(`/employees/update/${employeeId}`, employee);
+    await axios.put(
+      `https://employee-management-system-version1.onrender.com/api/employees/update/${employeeId}`,
+      employee
+    );
     navigate("/view-employees");
   };
 
