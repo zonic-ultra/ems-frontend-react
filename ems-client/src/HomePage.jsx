@@ -14,7 +14,7 @@ const HomePage = () => {
   const fetchTotalEmployees = async () => {
     try {
       const response = await axios.get(
-        "https://employee-management-system-version1.onrender.com/employees/total-employees"
+        "https://employee-management-system-version1.onrender.com/api/employees/total-employees"
       );
       setTotalEmployees(response.data);
     } catch (error) {
