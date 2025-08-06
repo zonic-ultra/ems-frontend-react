@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { FaDatabase, FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Search from "../common/Search";
+import api from "../../api/axios";
 
 const EmployeeView = () => {
   const [employees, setEmployees] = useState([]);
@@ -17,7 +17,7 @@ const EmployeeView = () => {
   }, []);
 
   const loadEmployees = async () => {
-    const result = await axios.get("http://localhost:8080/api/employees/all", {
+    const result = await api.get("/employees/all", {
       validateStatus: () => true,
     });
     if (result.status === 302) {
@@ -26,9 +26,7 @@ const EmployeeView = () => {
   };
 
   const handleDelete = async (employeeId) => {
-    await axios.delete(
-      `http://localhost:8080/api/employees/delete/${employeeId}`
-    );
+    await api.delete(`/employees/delete/${employeeId}`);
     loadEmployees();
   };
 
