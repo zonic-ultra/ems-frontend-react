@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import api from "../../api/axios";
-import axios from "axios";
+
+import api from "../../api/axios";
 
 const EmployeeProfile = () => {
   const { employeeId } = useParams();
@@ -18,9 +18,7 @@ const EmployeeProfile = () => {
 
   useEffect(() => {
     const loadEmployee = async () => {
-      const result = await axios.get(
-        `https://employee-management-system-version1.onrender.com/api/employees/employee/${employeeId}`
-      );
+      const result = await api.get(`/api/employees/employee/${employeeId}`);
       setEmployee(result.data);
     };
 

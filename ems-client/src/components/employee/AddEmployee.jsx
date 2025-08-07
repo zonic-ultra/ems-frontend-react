@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaFileMedical } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-// import api from "../../api/axios";
-import axios from "axios";
+
+import api from "../../api/axios";
 
 const AddEmployee = () => {
   let navigate = useNavigate();
@@ -25,10 +25,7 @@ const AddEmployee = () => {
 
   const saveEmployee = async (e) => {
     e.preventDefault();
-    await axios.post(
-      "https://employee-management-system-version1.onrender.com/api/employees/add",
-      employee
-    );
+    await api.post("/api/employees/add", employee);
     navigate("/view-employees");
   };
 

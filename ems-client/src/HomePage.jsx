@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaUsers } from "react-icons/fa";
 import "./HomePage.css";
 
-// import axios from "axios";
 import api from "./api/axios";
 
 const HomePage = () => {
