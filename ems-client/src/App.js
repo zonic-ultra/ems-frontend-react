@@ -15,7 +15,15 @@ function App() {
   return (
     <div className="bg-dark text-light min-vh-100">
       <main className="container mt-5">
-        <h2 className="text-center mt-3">.....DenDev.....</h2>
+        {/* <h2 className="text-center mt-3">.....DenDev.....</h2> */}
+        <div className="text-center">
+          <img
+            src="/images/EMSLOGO.svg"
+            alt="avatar"
+            className="rounded-circle img-fluid mx-auto d-block mt-2"
+            style={{ width: 80 }}
+          />
+        </div>
 
         <Router>
           <NavBar />
