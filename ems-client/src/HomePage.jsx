@@ -22,29 +22,14 @@ const HomePage = () => {
       setIsLoading(false); // 🔸 Hide message once backend responds
     }
   };
-  // const [loadingBackend, setLoadingBackend] = useState(true);
-
-  // useEffect(() => {
-  //   fetchTotalEmployees();
-  // }, []);
-
-  // const fetchTotalEmployees = async () => {
-  //   try {
-  //     const response = await api.get("/api/employees/total-employees");
-  //     setTotalEmployees(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching total employees:", error);
-  //   }
-  // };
 
   return (
     <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 bg-dark py-5">
       {/* 🔸 Show loading alert only if still loading */}
       {isLoading && (
-        <div className="alert alert-warning text-center mb-4" role="alert">
-          ⏳ Please wait a few seconds for the backend to load. This project
-          uses Render's free tier, which may take up to 50 seconds when
-          inactive.
+        <div className="text-primary text-center mb-4" role="alert">
+          ⏳ Loading backend... This project is hosted on Render's free tier and
+          may take 2–5 minutes to wake up.
         </div>
       )}
       <h2 className="fs-5 fw-light animate-heartbeat text-center text-white mb-3">

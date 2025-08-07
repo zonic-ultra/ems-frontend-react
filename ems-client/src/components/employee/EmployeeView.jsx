@@ -11,7 +11,7 @@ const EmployeeView = () => {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const employeesPerPage = 10;
+  const employeesPerPage = 5;
 
   useEffect(() => {
     loadEmployees();
