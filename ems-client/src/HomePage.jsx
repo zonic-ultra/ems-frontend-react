@@ -6,6 +6,7 @@ import api from "./api/axios";
 
 const HomePage = () => {
   const [totalEmployees, setTotalEmployees] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // 🔸 Add loading state
 
   useEffect(() => {
     fetchTotalEmployees();
@@ -17,11 +18,35 @@ const HomePage = () => {
       setTotalEmployees(response.data);
     } catch (error) {
       console.error("Error fetching total employees:", error);
+    } finally {
+      setIsLoading(false); // 🔸 Hide message once backend responds
     }
   };
+  // const [loadingBackend, setLoadingBackend] = useState(true);
+
+  // useEffect(() => {
+  //   fetchTotalEmployees();
+  // }, []);
+
+  // const fetchTotalEmployees = async () => {
+  //   try {
+  //     const response = await api.get("/api/employees/total-employees");
+  //     setTotalEmployees(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetching total employees:", error);
+  //   }
+  // };
 
   return (
     <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 bg-dark py-5">
+      {/* 🔸 Show loading alert only if still loading */}
+      {isLoading && (
+        <div className="alert alert-warning text-center mb-4" role="alert">
+          ⏳ Please wait a few seconds for the backend to load. This project
+          uses Render's free tier, which may take up to 50 seconds when
+          inactive.
+        </div>
+      )}
       <h2 className="fs-5 fw-light animate-heartbeat text-center text-white mb-3">
         Built for Leaders. Made for Teams
       </h2>
