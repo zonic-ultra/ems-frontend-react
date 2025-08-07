@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Search from "../common/Search";
 // import api from "../../api/axios";
 import axios from "axios";
+import api from "../../api/axios";
 
 const EmployeeView = () => {
   const [employees, setEmployees] = useState([]);
@@ -18,12 +19,9 @@ const EmployeeView = () => {
   }, []);
 
   const loadEmployees = async () => {
-    const result = await axios.get(
-      "https://employee-management-system-version1.onrender.com/api/employees/all",
-      {
-        validateStatus: () => true,
-      }
-    );
+    const result = await api.get("/api/employees/all", {
+      validateStatus: () => true,
+    });
     if (result.status === 302) {
       setEmployees(result.data);
     }
