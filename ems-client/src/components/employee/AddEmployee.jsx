@@ -57,7 +57,7 @@ const AddEmployee = () => {
               {" "}
               <FaFileMedical /> Add Employee
             </h2>
-            {message && <div className="message">{message}</div>}
+            {message && <div className="message text-dark">{message}</div>}
 
             {/* Input Fields */}
             {[

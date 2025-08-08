@@ -64,7 +64,7 @@ const EditEmployee = () => {
             <h2 className="text-dark text-center mb-4">
               <FaPencilRuler /> Edit Employee
             </h2>
-            {message && <div className="message">{message}</div>}
+            {message && <div className="message text-dark">{message}</div>}
 
             {[
               {
