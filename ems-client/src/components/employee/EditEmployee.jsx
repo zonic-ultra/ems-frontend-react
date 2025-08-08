@@ -6,6 +6,15 @@ import api from "../../api/axios";
 const EditEmployee = () => {
   const navigate = useNavigate();
   const { employeeId } = useParams();
+  const [message, setMessage] = useState("");
+
+  //metjhod to show message or errors
+  const showMessage = (msg) => {
+    setMessage(msg);
+    setTimeout(() => {
+      setMessage("");
+    }, 4000);
+  };
 
   const [employee, setEmployee] = useState({
     fullName: "",
@@ -35,6 +44,11 @@ const EditEmployee = () => {
 
   const updateEmployee = async (e) => {
     e.preventDefault();
+
+    if (Number(salary) <= 0) {
+      showMessage("Salary must be greater than zero!");
+      return;
+    }
     await api.put(`/api/employees/update/${employeeId}`, employee);
     navigate("/view-employees");
   };
@@ -50,6 +64,7 @@ const EditEmployee = () => {
             <h2 className="text-dark text-center mb-4">
               <FaPencilRuler /> Edit Employee
             </h2>
+            {message && <div className="message">{message}</div>}
 
             {[
               {

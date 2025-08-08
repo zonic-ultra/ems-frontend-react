@@ -6,6 +6,16 @@ import api from "../../api/axios";
 
 const AddEmployee = () => {
   let navigate = useNavigate();
+  const [message, setMessage] = useState("");
+
+  //metjhod to show message or errors
+  const showMessage = (msg) => {
+    setMessage(msg);
+    setTimeout(() => {
+      setMessage("");
+    }, 4000);
+  };
+
   const [employee, setEmployee] = useState({
     fullName: "",
     email: "",
@@ -25,6 +35,12 @@ const AddEmployee = () => {
 
   const saveEmployee = async (e) => {
     e.preventDefault();
+
+    if (Number(salary) <= 0) {
+      showMessage("Salary must be greater than zero!");
+      return;
+    }
+
     await api.post("/api/employees/add", employee);
     navigate("/view-employees");
   };
@@ -41,6 +57,7 @@ const AddEmployee = () => {
               {" "}
               <FaFileMedical /> Add Employee
             </h2>
+            {message && <div className="message">{message}</div>}
 
             {/* Input Fields */}
             {[
