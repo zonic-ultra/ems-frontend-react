@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mt-1 ">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4 ">
       <div className="container-fluid">
         <Link className="navbar-brand" to={"/"}>
-          EMS.....
+          HBs.....
         </Link>
         <button
           className="navbar-toggler"
@@ -40,6 +40,16 @@ const NavBar = () => {
                 }
               >
                 Add Employee
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active text-primary" : "")
+                }
+              >
+                About
               </NavLink>
             </li>
             {/* <li className="nav-item dropdown">

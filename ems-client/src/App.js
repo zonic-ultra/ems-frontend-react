@@ -10,18 +10,17 @@ import HomePage from "./HomePage";
 import AddEmployee from "./components/employee/AddEmployee";
 import EditEmployee from "./components/employee/EditEmployee";
 import EmployeeProfile from "./components/employee/EmployeeProfile";
+import About from "./components/employee/About";
 
 function App() {
   return (
     <div className="bg-dark text-light min-vh-100">
-      <main className="container mt-5">
-        {/* <h2 className="text-center mt-3">.....DenDev.....</h2> */}
-        <div className="text-center">
+      <main className="container ">
+        <div className="d-flex justify-content-center m-4">
           <img
-            src="/images/EMSLOGO.svg"
-            alt="avatar"
-            className="rounded-circle img-fluid mx-auto d-block mt-2"
-            style={{ width: 80 }}
+            src="/images/hireBaselogo.png"
+            alt="hirebaselogo"
+            style={{ maxWidth: 80, height: "auto" }}
           />
         </div>
 
@@ -50,6 +49,7 @@ function App() {
               path="/view-employee-profile/:employeeId"
               element={<EmployeeProfile />}
             ></Route>
+            <Route exact path="/about" element={<About />}></Route>
           </Routes>
         </Router>
       </main>
