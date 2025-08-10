@@ -15,12 +15,13 @@ import About from "./components/employee/About";
 function App() {
   return (
     <div className="bg-dark text-light min-vh-100">
-      <main className="container ">
+     
         <div className="d-flex justify-content-center m-4">
           <img
             src="/images/hireBaselogo.png"
             alt="hirebaselogo"
-            style={{ maxWidth: 80, height: "auto" }}
+            className="logo-animation"
+            style={{ maxWidth: 60, height: "auto" }}
           />
         </div>
 
