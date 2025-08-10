@@ -15,7 +15,7 @@ import About from "./components/employee/About";
 function App() {
   return (
     <div className="bg-dark text-light min-vh-100">
-     
+      <main className="container">
         <div className="d-flex justify-content-center m-4">
           <img
             src="/images/hireBaselogo.png"
