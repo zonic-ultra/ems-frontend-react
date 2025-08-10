@@ -8,7 +8,7 @@ const About = () => {
     >
       <p className="text-center text-light mt-5">
         HireBase is a simple and efficient mini employee management tool
-        desinged to help track essentials employee details all in one place
+        designed to help track essentials employee details all in one place
       </p>
 
       <img
